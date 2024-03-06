@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Video';
+    src: local('Video Medium'), local('Video-Medium'),
+        url('Video-Medium.woff2') format('woff2'),
+        url('Video-Medium.woff') format('woff'),
+        url('Video-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
