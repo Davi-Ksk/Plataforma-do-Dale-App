@@ -3,18 +3,23 @@ export default {
 
   COLORS: {
 
-      //Do branco ao preto
-      BACKGROUND_100: "#FFFFFF",
-      
-      BACKGROUND_900: "#121212",
-  
-      //Verdes/accent colors
-      HIGHLIGHT_100: "#01E746",
-      HIGHLIGHT_200: "#00FF59",
+    //Do branco ao preto
+    BACKGROUND_100: "#FFFFFF",
+    BACKGROUND_200: "#F9FAFA",
+    BACKGROUND_300: "#EEEEEE",
+    BACKGROUND_400: "#D3D3D3",
+    
+    BACKGROUND_700: "181818",
+    BACKGROUND_800: "111111",
+    BACKGROUND_900: "#060606",
 
-      ERROR_100: "#FF002E", //Vermelho
-      ERROR_200: "#FF0000", //Amarelo
-      
+    //Verdes/accent colors
+    HIGHLIGHT_100: "#93EEB3",
+    HIGHLIGHT_200: "#00FF59", 
+    HIGHLIGHT_300: "#01DB0B",
+
+    ERROR_100: "#F58C96", //Vermelho
+    ERROR_200: "#FFEB8C", //Amarelo
       
     }
   }
