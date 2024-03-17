@@ -1,9 +1,9 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import GlobalStyles from './Styles/global';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import GlobalStyles from './styles/global';
 import { ThemeProvider } from 'styled-components';
 
-import theme from './Styles/theme'
+import theme from './styles/theme'
 
 import { Routes } from './routes';
 
