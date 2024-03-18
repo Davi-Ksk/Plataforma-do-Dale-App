@@ -55,17 +55,19 @@ export const ProfileInfo = styled.div`
     }
 
     strong.green {
-        color: ${props => props.theme.COLORS.HIGHLIGHT_100};
+        color: ${props => props.theme.COLORS.HIGHLIGHT_300};
     }
 `;
 
 export const ProfileImage = styled.img`
-    width: 50%;
+    width: 200px;
     max-width: 200px;
-    height: auto;
+    height: 200px;
+    object-fit: cover; /* Mantém a proporção da imagem */
+    object-position: top; /* Enquadra a imagem para cima */
     border-radius: 50%;
     margin-bottom: 15px;
-    border: 2px solid;
+    border: 1px solid;
 `;
 
 export const Biography = styled.p`
