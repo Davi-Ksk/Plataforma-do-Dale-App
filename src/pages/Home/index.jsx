@@ -1,13 +1,11 @@
-import { Container } from "styles.js";
-import { Nav } from "components/Nav";
+import { Container } from "./styles.js";
+import { Card } from "../../components/Card";
+// import { Nav } from "components/Nav";
 
 export function Home() {
   return (
     <Container>
-
-      <Content>
-
-      </Content>
+        <Card/>
     </Container>
   )
 }
