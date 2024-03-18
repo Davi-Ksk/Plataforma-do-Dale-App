@@ -34,10 +34,12 @@ export const ProfileInfo = styled.div`
     h2 {
         font-family: ${fontFamily.FONT_100};
         text-align: center;
+        margin-bottom: 40px;
     }
 
     > div {
         text-align: left;
+        width: 90%;
     }
 
     p {
@@ -51,13 +53,75 @@ export const ProfileInfo = styled.div`
     strong {
         margin-right: 5px;
     }
+
+    strong.green {
+        color: ${props => props.theme.COLORS.HIGHLIGHT_100};
+    }
 `;
 
 export const ProfileImage = styled.img`
-    width: 100%;
+    width: 50%;
     max-width: 200px;
     height: auto;
     border-radius: 50%;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    border: 2px solid;
 `;
 
+export const Biography = styled.p`
+    font-family: ${fontFamily.FONT_100};
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 350px;
+    word-wrap: break-word;
+
+    h3 {
+        font-family: ${fontFamily.FONT_100};
+        text-align: left;
+        margin-bottom: 20px;
+    }
+`;
+
+export const Habilidades = styled.p`
+    font-family: ${fontFamily.FONT_100};
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 350px;
+    word-wrap: break-word;
+
+    h3 {
+        font-family: ${fontFamily.FONT_100};
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    p {
+        border: 1px solid;
+        border-radius: 6px;
+    }
+`;
+
+export const Competencias = styled.p`
+    font-family: ${fontFamily.FONT_100};
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 350px;
+    word-wrap: break-word;
+
+    h3 {
+        font-family: ${fontFamily.FONT_100};
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    p {
+        border: 1px solid;
+        border-radius: 6px;
+    }
+`;
