@@ -1,6 +1,6 @@
 // index.jsx
 import React from "react";
-import { Container, Navbar, ProfileInfo, ProfileImage, Biography, Habilidades, Competencias} from "./style";
+import { Container, Navbar, ProfileInfo, ProfileImage, Biography, Habilidades, Competencias, EducationLevel} from "./style";
 import Tags from "../../components/Tags/Tags";
 export function Profile() {
     return (
@@ -27,6 +27,17 @@ export function Profile() {
                     </div>
                 </div>
             </Biography>
+            <EducationLevel>
+                <div>
+                    <h3>Educação</h3>
+                    <div>
+                        <p><strong>Graduação:</strong> Superior - Em andamento</p>
+                        <p><strong>Curso:</strong> Análise e Desenvolvimento de Sistemas</p>
+                        <p><strong>Institução:</strong> Unissinos</p>
+                        <p><strong>Conclusão:</strong> 2026</p>
+                    </div>
+                </div>
+            </EducationLevel>
             <Habilidades>
                 <div>
                     <h3>Habilidades</h3>

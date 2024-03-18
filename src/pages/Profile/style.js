@@ -127,3 +127,19 @@ export const Competencias = styled.p`
         border-radius: 6px;
     }
 `;
+
+export const EducationLevel = styled.p`
+    font-family: ${fontFamily.FONT_100};
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 350px;
+    word-wrap: break-word;
+
+    h3 {
+        font-family: ${fontFamily.FONT_100};
+        text-align: left;
+        margin-bottom: 20px;
+    }
+`;
