@@ -2,6 +2,8 @@ import { Container } from "./styles";
 import { PiStarFourFill, PiLinkedinLogo,   } from "react-icons/pi";
 import { Tag } from "../../components/Tag";
 
+import { useState } from 'react';
+
 export function Card() {
     return (
         <Container>
@@ -17,8 +19,8 @@ export function Card() {
             <p id="city">Porto Alegre, RS</p>
 
             <div className="education">
-                <p id="education-level">Ensino Superior Incompleto</p>
                 <p id="gc-trail">Programação</p>
+                <p id="education-level">Ensino Superior Incompleto</p>
                 <p id="course">Análise e desenvolvimento de Sistemas</p>
             </div>
 
@@ -26,17 +28,14 @@ export function Card() {
                 <p>Habilidades</p>
                 <div className="tags">
                     <Tag title="Marketing de conteúdo" />
-                    <Tag title="Email marketing" />
+                    <Tag title="Conhecimento em ferramentas de design (Adobe XD, Sketch, Figma)" />
                 </div>
             </div>
             <div className="tags-container">
-                <p>Habilidades</p>
+                <p>Competências</p>
                 <div>
-                    <Tag title="Tag" />
-                    <Tag title="Tag" />
-                    <Tag title="Tag" />
-                    <Tag title="Tag" />
-                    <Tag title="Tag" />
+                <Tag title="Marketing de conteúdo" />
+                    <Tag title="Conhecimento em ferramentas de design (Adobe XD, Sketch, Figma)" />
                 </div>
             </div>
 

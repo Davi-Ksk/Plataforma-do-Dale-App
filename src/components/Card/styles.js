@@ -41,13 +41,14 @@ export const Container = styled.div`
 
     > #city {
         font-size: 1.2rem;
+        margin-bottom: 0.8rem;
     }
 
     > .education {
         display: flex;
         flex-direction: column;
         margin-bottom: 1.6rem;
-        gap: 1rem;
+        gap: 0.2rem;
 
         > p {
             font-size: 1.4rem;
@@ -60,7 +61,9 @@ export const Container = styled.div`
         flex-direction: column;
         width: 100%;
         align-items: left;
-        gap: 0.8rem;
+        gap: 0.2rem;
+        margin-bottom: 0.8rem;
+
 /* 
         > .tags {
             display: flex;
@@ -69,9 +72,15 @@ export const Container = styled.div`
 
         > p {
             font-size: 1.4rem;
-            margin-bottom: 0.8rem;
+            /* margin-bottom: 0.8rem; */
             color: ${({ theme }) => theme.COLORS.WHITE};
         }
+    }
+
+    .links {
+        display: flex;
+        justify-content: right;
+        width: 100%;
     }
 
 `;
