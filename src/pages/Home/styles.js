@@ -8,5 +8,7 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
 
+  gap: 3.2rem;
+
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 `;

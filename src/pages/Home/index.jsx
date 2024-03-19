@@ -1,6 +1,5 @@
 import { Container } from "./styles.js";
 import { Card } from "../../components/Card";
-// import { Nav } from "components/Nav";
 import { api } from '../../services/api';
 import { useEffect } from "react";
 import { useState } from "react";

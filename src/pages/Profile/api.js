@@ -1,6 +1,6 @@
 export async function fetchStudentData(studentId) {
     try {
-        const response = await fetch(`https://52.15.65.32:8080/api/students/${studentId}`);
+        const response = await fetch(`http://ec2-3-19-60-148.us-east-2.compute.amazonaws.com:8080/api${studentId}`);
         if (!response.ok) {
             throw new Error('Erro ao buscar dados do aluno');
         }
