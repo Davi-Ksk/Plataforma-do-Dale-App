@@ -1,14 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
 
+
+import { Profile } from '../pages/Profile';
+
 import { Home } from '../pages/Home';
-// import { Profile } from '../pages/Profile';
-// import { Lists } from '../pages/Lists';
 
 export function AppRoutes() {
     return (
         <Routes>
+
+            <Route path="/:studentId" element={<Profile />} />
+
             <Route path="/" element={<Home />} />
             {/* <Route path="/profile/:id" element={<Profile />} /> */}
+
         </Routes>
     )
 }
