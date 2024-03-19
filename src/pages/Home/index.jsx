@@ -11,7 +11,7 @@ export function Home() {
   const navigate = useNavigate();
 
   function handleProfile(id) {
-      navigate(`/profile/${id}`);
+      navigate(`students/profile/${id}`);
   }
 
   useEffect(() => {

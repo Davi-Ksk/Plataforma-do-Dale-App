@@ -6,6 +6,7 @@ import { Container, Navbar, ProfileInfo, ProfileImage, Biography, Habilidades, C
 import Tags from "../../components/Tags/Tags";
 
 export function Profile() {
+    
     const [studentData, setStudentData] = useState(null);
     const { studentId } = useParams();
 
