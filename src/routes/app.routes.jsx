@@ -1,13 +1,19 @@
 import { Routes, Route } from 'react-router-dom';
 
-// import { Home } from '../pages/Home';
+
 import { Profile } from '../pages/Profile';
+
+import { Home } from '../pages/Home';
 
 export function AppRoutes() {
     return (
         <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
+
             <Route path="/:studentId" element={<Profile />} />
+
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/profile/:id" element={<Profile />} /> */}
+
         </Routes>
     )
 }
