@@ -3,6 +3,7 @@ export default {
 
   COLORS: {
 
+PD-06-home-page
     //Do branco ao preto
     BACKGROUND_100: "#FFFFFF",
     BACKGROUND_200: "#F9FAFA",
