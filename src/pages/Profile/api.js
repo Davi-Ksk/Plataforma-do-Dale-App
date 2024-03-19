@@ -1,0 +1,14 @@
+export async function fetchStudentData(studentId) {
+    try {
+        const response = await fetch(`http://ec2-3-129-25-86.us-east-2.compute.amazonaws.com:8080/api/students/${studentId}`);
+        if (!response.ok) {
+            throw new Error('Erro ao buscar dados do aluno');
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Erro:', error);
+        throw error;
+    }
+}
+  
