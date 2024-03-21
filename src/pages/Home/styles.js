@@ -8,6 +8,9 @@ export const Container = styled.div`
   width: 100%;
   height: 100%;
   gap: 3.2rem;
+
+  font-family: 'Montserrat', sans-serif;
+
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_200};
 `;
 
@@ -34,6 +37,9 @@ export const SearchInput = styled.div`
   display: flex;
   align-items: center;
   flex-grow: 1; 
+
+  font-family: 'Montserrat', sans-serif;
+
 `;
 
 export const Input = styled.input`
@@ -42,6 +48,9 @@ export const Input = styled.input`
   border: none;
   border-radius: 5px;
   font-size: 16px;
+
+  font-family: 'Montserrat', sans-serif;
+
 `;
 
 export const MenuButton = styled.button`

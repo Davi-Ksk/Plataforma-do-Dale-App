@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 20px;
+}
+
+.select {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+  }
+  
+  .btn {
+    border: none;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #00FF59;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    cursor: pointer;
+
+    font-family: 'Montserrat', sans-serif;
+
+  }
