@@ -1,4 +1,6 @@
 import styled from "styled-components"; 
+import filterIMG from "../../assets/images/filter_icon.png";
+import menuIMG from "../../assets/images/menu_icon.png";
 
 export const Container = styled.div`
   display: flex;
@@ -59,7 +61,7 @@ export const MenuButton = styled.button`
   width: 30px;
   height: 30px;
   margin-right: 40px; 
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_o8jJ08gIj6XFLI9dIWo7YpOCF_3Ez3wS09XIsSkUoA&s');
+  background-image: url(${menuIMG});
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
@@ -72,7 +74,7 @@ export const RightMenuButton = styled.button`
   width: 30px;
   height: 30px;
   margin-left: 20px; 
-  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiXp76AAlFTVJ9KqcNCG0cZDU6nTT0zZ7YqqtrrCwgQQ&s');
+  background-image: url(${filterIMG});
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
