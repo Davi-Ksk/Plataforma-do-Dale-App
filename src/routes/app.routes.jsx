@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Profile } from '../pages/Profile';
 
-import { Home } from '../pages/Home';
+import { Students } from '../pages/Students';
 
 export function AppRoutes() {
     return (
@@ -10,7 +10,7 @@ export function AppRoutes() {
 
             <Route path="students/profile/:studentId" element={<Profile />} />
 
-            <Route path="/students" element={<Home />} />
+            <Route path="students/" element={<Students />} />
             {/* <Route path="/profile/:id" element={<Profile />} /> */}
 
         </Routes>

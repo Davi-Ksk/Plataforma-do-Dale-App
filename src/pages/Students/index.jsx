@@ -8,7 +8,7 @@ import { MultiSelect } from "../../components/MultiSelect";
 import { api } from '../../services/api';
 import { useNavigate } from 'react-router-dom';
 
-export function Home() {
+export function Students() {
   const [searchValue, setSearchValue] = useState("");
   const [gcTrailFilter, setGcTrailFilter] = useState("");
   const [educationLevelFilter, setEducationLevelFilter] = useState("");
