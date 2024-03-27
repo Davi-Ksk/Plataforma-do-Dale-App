@@ -1,3 +1,5 @@
+// index.jsx da página Home
+
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import { Container } from "./styles";
@@ -96,9 +98,11 @@ export function Home() {
       <Navbar
         isSidebarOpen={isSidebarOpen}
         toggleSidebar={toggleSidebar}
+        showSearchInput={true}
         searchValue={searchValue}
         handleSearchChange={handleSearchChange}
         handleEnterPress={handleEnterPress}
+        showRightMenu={true}
         toggleFilter={toggleFilter}
       />
 

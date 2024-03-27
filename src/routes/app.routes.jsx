@@ -10,7 +10,7 @@ export function AppRoutes() {
 
             <Route path="students/profile/:studentId" element={<Profile />} />
 
-            <Route path="/" element={<Home />} />
+            <Route path="/students" element={<Home />} />
             {/* <Route path="/profile/:id" element={<Profile />} /> */}
 
         </Routes>

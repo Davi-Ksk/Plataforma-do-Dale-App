@@ -1,29 +1,54 @@
-import React from "react";
-import { Container, LeftMenu, RightMenu, SearchInput, Input, MenuButton, RightMenuButton, Sidebar, CloseButton } from "./styles"; // Importando os estilos necessários
+// Navbar/index.jsx
 
-const Navbar = ({ isSidebarOpen, toggleSidebar, searchValue, handleSearchChange, handleEnterPress, toggleFilter }) => {
+import React from "react";
+import {
+  Container,
+  LeftMenu,
+  RightMenu,
+  SearchInput,
+  Input,
+  MenuButton,
+  RightMenuButton,
+  Sidebar,
+  CloseButton,
+} from "./styles";
+
+const Navbar = ({
+  isSidebarOpen,
+  toggleSidebar,
+  showSearchInput,
+  searchValue,
+  handleSearchChange,
+  handleEnterPress,
+  showRightMenu,
+  toggleFilter,
+}) => {
   return (
     <Container>
       <LeftMenu>
         <MenuButton onClick={toggleSidebar}></MenuButton>
-        <SearchInput>
-          <Input
-            type="text"
-            value={searchValue}
-            onChange={handleSearchChange}
-            onKeyPress={handleEnterPress}
-            placeholder="Pesquisar"
-          />
-        </SearchInput>
+        {showSearchInput && (
+          <SearchInput>
+            <Input
+              type="text"
+              value={searchValue}
+              onChange={handleSearchChange}
+              onKeyPress={handleEnterPress}
+              placeholder="Pesquisar"
+            />
+          </SearchInput>
+        )}
       </LeftMenu>
 
-      <RightMenu>
-        <RightMenuButton onClick={toggleFilter}></RightMenuButton>
-      </RightMenu>
+      {showRightMenu && (
+        <RightMenu>
+          <RightMenuButton onClick={toggleFilter}></RightMenuButton>
+        </RightMenu>
+      )}
 
       {isSidebarOpen && (
         <Sidebar>
-          <CloseButton>X</CloseButton>
+          <CloseButton onClick={toggleSidebar}>X</CloseButton>
         </Sidebar>
       )}
     </Container>
@@ -31,3 +56,5 @@ const Navbar = ({ isSidebarOpen, toggleSidebar, searchValue, handleSearchChange,
 };
 
 export default Navbar;
+
+
