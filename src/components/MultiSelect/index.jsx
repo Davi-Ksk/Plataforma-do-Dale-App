@@ -1,143 +1,73 @@
 import React, { useState } from "react";
-import Select from "react-select";
-import makeAnimated from "react-select/animated";
-import "./style.css";
-import { api } from '../../services/api';
-import { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
 
-// import { Container } from "./style";
+export const MultiSelect = ({ handleGcTrailFilterChange, handleEducationLevelFilterChange, handleHardSkillsFilterChange, handleSoftSkillsFilterChange }) => {
+  const [gcTrailValue, setGcTrailValue] = useState("");
+  const [educationLevelValue, setEducationLevelValue] = useState("");
+  const [hardSkillsValue, setHardSkillsValue] = useState("");
+  const [softSkillsValue, setSoftSkillsValue] = useState("");
 
+  const handleGcTrailInputChange = (event) => {
+    const inputValue = event.target.value;
+    setGcTrailValue(inputValue);
+    handleGcTrailFilterChange(inputValue.trim());
+  };
 
-const animatedComponents = makeAnimated();
+  const handleEducationLevelInputChange = (event) => {
+    const inputValue = event.target.value;
+    setEducationLevelValue(inputValue);
+    handleEducationLevelFilterChange(inputValue.trim());
+  };
 
-// hardSkills [ hardSkills ] = useState([]);
+  const handleHardSkillsInputChange = (event) => {
+    const inputValue = event.target.value;
+    setHardSkillsValue(inputValue);
+    handleHardSkillsFilterChange(inputValue.trim());
+  };
 
-const trails = [
-
-  { value: "PROGRAMACAO", label: "Programacão" },
-  { value: "UX_UI_DESIGN", label: "UX/UI Design" },
-  { value: "MARKETING_DIGITAL", label: "Marketing Digital" },
-  { value: " GESTAO_E_VENDAS", label: "Gestão Vendas" }
-
-];
-
-const educationLevels = [
-  
-  { value: "MEDIO_EM_ANDAMENTO", label: "Ensino Médio em andamento" },
-  { value: "MEDIO_COMPLETO", label: "Ensino Médio completo" },
-  { value: "MARKETING_DIGITAL", label: "Ensino Superior em andamento" },
-  { value: "SUPERIOR_COMPLETOS", label: "Ensino Superior completo" },
-  { value: "POS_GRADUACAO_EM_ANDAMENTO", label: "Pós Graduação em andamento" },
-  { value: "POS_GRADUACAO_COMPLETO", label: "Pós Graduação completo" }
-]
-
-const hardSkills = [
-
-  { value: "NODEJS", label: "Node.js" },
-  { value: "JAVA", label: "Java" },
-  { value: "REACTJS", label: "React.js" },
-
-  // useEffect(() => {
-  //   async function fetchHardSkills() {
-  //     const response = await api.get('/skills/hard');
-  //     setCards(response.data);
-  //   }
-  //   fetchStudents();
-  // }, []),
-
-]
-
-const softSkills = [
-
-  { value: "COMUNICACAO", label: "Comunicação" },
-  { value: "ENGENHARIA_REDES", label: "Inteligência emocional" },
-  { value: "REACTJS", label: "Trabalho em equipe" },
-
-  // useEffect(() => {
-  //   async function fetchHardSkills() {
-  //     const response = await api.get('/skills/hard');
-  //     setCards(response.data);
-  //   }
-  //   fetchStudents();
-  // }, []),
-
-]
-
-export const MultiSelect = () => {
-  const [selectedTrails, setSelectedTrails] = useState([]);
-  const [selectedEducationLevels, setSelectedEducationLevels] = useState([]);
-  const [selectedHardSkills, setSelectedHardSkills] = useState([]);
-  const [selectedSoftSkills, setSelectedSoftSkills] = useState([]);
-
-  const handleSelect = () => {
-    console.log(selectedTrails);
-    console.log(selectedEducationLevels);
-    console.log(selectedHardSkills);
-    console.log(selectedSoftSkills);
+  const handleSoftSkillsInputChange = (event) => {
+    const inputValue = event.target.value;
+    setSoftSkillsValue(inputValue);
+    handleSoftSkillsFilterChange(inputValue.trim());
   };
 
   return (
     <div className="container">
-        <Select
-          // defaultValue={[options[0], options[0]]}
-          components={animatedComponents}
-          options={trails}
-          onChange={(item) => setSelectedTrails(item)}
-          className="select"
-          isClearable={true}
-          isSearchable={true}
-          isDisabled={false}
-          isLoading={false}
-          isRtl={false}
-          closeMenuOnSelect={false}
-        />
-  
-        <Select
-          components={animatedComponents}
-          isMulti
-          options={educationLevels}
-          onChange={(item) => setSelectedEducationLevels(item)}
-          className="select"
-          isClearable={true}
-          isSearchable={true}
-          isDisabled={false}
-          isLoading={false}
-          isRtl={false}
-          closeMenuOnSelect={false}
-        />
-  
-        <Select
-          components={animatedComponents}
-          isMulti
-          options={hardSkills}
-          onChange={(item) => setSelectedHardSkills(item)}
-          className="select"
-          isClearable={true}
-          isSearchable={true}
-          isDisabled={false}
-          isLoading={false}
-          isRtl={false}
-          closeMenuOnSelect={false}
-        />
-  
-        <Select
-          components={animatedComponents}
-          isMulti
-          options={softSkills}
-          onChange={(item) => setSelectedSoftSkills(item)}
-          className="select"
-          isClearable={true}
-          isSearchable={true}
-          isDisabled={false}
-          isLoading={false}
-          isRtl={false}
-          closeMenuOnSelect={false}
-        />
-      
-      <button className ="btn" onClick={handleSelect}>Filtrar</button>
-    
+      <input
+        type="text"
+        value={gcTrailValue}
+        onChange={handleGcTrailInputChange}
+        placeholder="Filtrar por GC Trail"
+        className="input"
+      />
+      <input
+        type="text"
+        value={educationLevelValue}
+        onChange={handleEducationLevelInputChange}
+        placeholder="Filtrar por Nível de Educação"
+        className="input"
+      />
+      <input
+        type="text"
+        value={hardSkillsValue}
+        onChange={handleHardSkillsInputChange}
+        placeholder="Filtrar por Hard Skills"
+        className="input"
+      />
+      <input
+        type="text"
+        value={softSkillsValue}
+        onChange={handleSoftSkillsInputChange}
+        placeholder="Filtrar por Soft Skills"
+        className="input"
+      />
     </div>
-
   );
 };
+
+
+
+
+
+
+
+

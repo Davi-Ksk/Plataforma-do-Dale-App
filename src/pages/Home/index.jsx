@@ -1,21 +1,20 @@
-// index.jsx
-
-import { useState } from "react";
-import { Container, Navbar, LeftMenu, RightMenu, SearchInput, Input, MenuButton, RightMenuButton, Sidebar, CloseButton } from "./styles.js"; // Importando os estilos necessários
+import React, { useState, useEffect } from "react";
+import Navbar from "../../components/Navbar";
+import { Container } from "./styles";
 import { Card } from "../../components/Card";
 import { MultiSelect } from "../../components/MultiSelect";
-
 import { api } from '../../services/api';
-import { useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-
-import { Filter } from "../../components/Filter";
 
 export function Home() {
   const [searchValue, setSearchValue] = useState("");
+  const [gcTrailFilter, setGcTrailFilter] = useState("");
+  const [educationLevelFilter, setEducationLevelFilter] = useState("");
+  const [hardSkillsFilter, setHardSkillsFilter] = useState("");
+  const [softSkillsFilter, setSoftSkillsFilter] = useState("");
   const [cards, setCards] = useState([]);
   const [filteredCards, setFilteredCards] = useState([]);
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false); // Estado para controlar se a barra lateral está aberta
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [isSidebarFilterOpen, setIsSidebarFilterOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -31,33 +30,37 @@ export function Home() {
 
   const filterCards = () => {
     const filtered = cards.filter((card) =>
-      card.name.toLowerCase().includes(searchValue.toLowerCase())
+      card.name.toLowerCase().includes(searchValue.toLowerCase()) &&
+      card.gcTrail.toLowerCase().includes(gcTrailFilter.toLowerCase()) &&
+      card.educationLevel.toLowerCase().includes(educationLevelFilter.toLowerCase()) &&
+      card.hardSkills.some(skill => skill.description.toLowerCase().includes(hardSkillsFilter.toLowerCase())) &&
+      card.softSkills.some(skill => skill.description.toLowerCase().includes(softSkillsFilter.toLowerCase()))
     );
     setFilteredCards(filtered);
   };
 
   useEffect(() => {
-    async function fetchStudents() {
+    async function fetchData() {
       const response = await api.get('/students');
       setCards(response.data);
     }
-    fetchStudents();
+    fetchData();
   }, []);
 
   useEffect(() => {
-    if (searchValue.trim() === "") {
+    if (searchValue.trim() === "" && gcTrailFilter.trim() === "" && educationLevelFilter.trim() === "" && hardSkillsFilter.trim() === "" && softSkillsFilter.trim() === "") {
       setFilteredCards([]);
     } else {
       filterCards();
     }
-  }, [searchValue]);
+  }, [searchValue, gcTrailFilter, educationLevelFilter, hardSkillsFilter, softSkillsFilter]);
 
   const handleProfile = (id) => {
     navigate(`students/profile/${id}`);
   };
 
   const toggleSidebar = () => {
-    setIsSidebarOpen(!isSidebarOpen); // Alternando entre aberto e fechado
+    setIsSidebarOpen(!isSidebarOpen);
   };
 
   const toggleFilter = () => {
@@ -65,74 +68,60 @@ export function Home() {
   };
 
   const closeSidebar = () => {
-    setIsSidebarOpen(false); // Fechar a barra lateral
+    setIsSidebarOpen(false);
   };
 
   const closeFilter = () => {
     setIsSidebarFilterOpen(false);
   };
 
-  // Função para lidar com a ação do botão de menu da direita
-  const handleFilterMenu = () => {
-   setIs
+  const handleGcTrailFilterChange = (gcTrailFilter) => {
+    setGcTrailFilter(gcTrailFilter);
   };
 
+  const handleEducationLevelFilterChange = (educationLevelFilter) => {
+    setEducationLevelFilter(educationLevelFilter);
+  };
+
+  const handleHardSkillsFilterChange = (hardSkillsFilter) => {
+    setHardSkillsFilter(hardSkillsFilter);
+  };
+
+  const handleSoftSkillsFilterChange = (softSkillsFilter) => {
+    setSoftSkillsFilter(softSkillsFilter);
+  };
 
   return (
-
-    // <Container>
-    //   <MultiSelect />
-    // </Container>
-
     <Container>
-
-      <Navbar>
-        
-        <LeftMenu>
-          <MenuButton onClick={toggleSidebar}></MenuButton> {/* Botão para abrir e fechar a barra lateral */}
-          <SearchInput>
-            <Input
-              type="text"
-              value={searchValue}
-              onChange={handleSearchChange}
-              onKeyPress={handleEnterPress}
-              placeholder="Pesquisar "
-            />
-          </SearchInput>
-        </LeftMenu>
-
-        <RightMenu>
-          <RightMenuButton onClick={toggleFilter}></RightMenuButton>
-        </RightMenu>
-
-      </Navbar>
-
-
-      {isSidebarOpen && (
-        <Sidebar>
-          <CloseButton onClick={closeSidebar}>X</CloseButton>
-          {/* Conteúdo do menu aqui */}
-        </Sidebar>
-      )}
-
+      <Navbar
+        isSidebarOpen={isSidebarOpen}
+        toggleSidebar={toggleSidebar}
+        searchValue={searchValue}
+        handleSearchChange={handleSearchChange}
+        handleEnterPress={handleEnterPress}
+        toggleFilter={toggleFilter}
+      />
 
       {isSidebarFilterOpen && (
-        <MultiSelect />
-          // <CloseButton onClick={closeFilter}>X</CloseButton>
+        <MultiSelect 
+          handleGcTrailFilterChange={handleGcTrailFilterChange} 
+          handleEducationLevelFilterChange={handleEducationLevelFilterChange}
+          handleHardSkillsFilterChange={handleHardSkillsFilterChange}
+          handleSoftSkillsFilterChange={handleSoftSkillsFilterChange}
+        />
       )}
 
-
-      {searchValue.trim() === "" ? (
-        // Se a barra de pesquisa estiver vazia, exibir todos os cards
+      {searchValue.trim() === "" && gcTrailFilter.trim() === "" && educationLevelFilter.trim() === "" && hardSkillsFilter.trim() === "" && softSkillsFilter.trim() === "" ? (
         cards.map((card) => (
           <Card
             key={String(card.id)}
             data={card}
+            hardSkills={card.hardSkills}
+            softSkills={card.softSkills}
             onClick={() => handleProfile(card.id)}
           />
         ))
       ) : (
-        // Caso contrário, exibir os cards filtrados
         filteredCards.map((card) => (
           <Card
             key={String(card.id)}
@@ -144,6 +133,12 @@ export function Home() {
     </Container>
   );
 }
+
+
+
+
+
+
 
 
 
